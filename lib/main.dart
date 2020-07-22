@@ -1,5 +1,6 @@
 import './transaction.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 void main() => runApp(MyApp());
 
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
                       decoration: BoxDecoration(
                           border: Border.all(color: Colors.purple, width: 2)),
                       child: Text(
-                        tx.amount.toString(),
+                        'Rs. ${tx.amount}',
                         style: TextStyle(
                             color: Colors.purple,
                             fontSize: 20,
@@ -53,10 +54,10 @@ class MyApp extends StatelessWidget {
                       child: Column(
                         children: <Widget>[
                           Text(tx.title,style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
-                          Text(tx.date.toString(), style: TextStyle(fontSize: 10,color: Colors.grey),)
+                          Text(DateFormat().add_yMMMd().format(tx.date), style: TextStyle(fontSize: 10,color: Colors.grey),)
                         ],
                         crossAxisAlignment: CrossAxisAlignment.start,
-                      ),
+                      ), 
                     )
                   ],
                 ),
