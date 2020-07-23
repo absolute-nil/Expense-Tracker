@@ -32,7 +32,7 @@ class NewTransaction extends StatelessWidget {
               keyboardType: TextInputType.number,
               decoration: InputDecoration(labelText: 'Amount'),
               controller: amountController,
-              onSubmitted: (value) => this.submitTransaction(),
+              onSubmitted: (_) => this.submitTransaction(),
             ),
             FlatButton(
               onPressed: this.submitTransaction,
