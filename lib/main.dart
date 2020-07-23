@@ -13,19 +13,20 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("Expense Manager"),
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Container(
-              child: Card(
-                child: Text("Chart"),
-                elevation: 5,
-                color: Colors.blue,
+        body: SingleChildScrollView(
+                  child: Column(
+            children: <Widget>[
+              Container(
+                child: Card(
+                  child: Text("Chart"),
+                  elevation: 5,
+                  color: Colors.blue,
+                ),
+                width: double.infinity,
               ),
-              width: double.infinity,
-            ),
-            UserTransaction(),
-          ],
+              UserTransaction(),
+            ],
+          ),
         ),
       ),
     );
