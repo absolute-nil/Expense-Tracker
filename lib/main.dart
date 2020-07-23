@@ -11,6 +11,8 @@ class MyApp extends StatelessWidget {
     Transaction(
         id: 't2', title: 'Logitech Mouse', amount: 8000, date: DateTime.now())
   ];
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,6 @@ class MyApp extends StatelessWidget {
           title: Text("Expense Manager"),
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
@@ -30,6 +31,32 @@ class MyApp extends StatelessWidget {
                 color: Colors.blue,
               ),
               width: double.infinity,
+            ),
+            Card(
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Title'),
+                      controller: titleController,
+                    ),
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Amount'),
+                      controller: amountController,
+                    ),
+                    FlatButton(
+                      onPressed: () {
+                        print(
+                            '${titleController.text},${amountController.text}');
+                      },
+                      child: Text("Add Transaction"),
+                      textColor: Colors.purple,
+                    ),
+                  ],
+                ),
+              ),
             ),
             Column(
                 children: transactions.map((tx) {
@@ -53,11 +80,18 @@ class MyApp extends StatelessWidget {
                     Container(
                       child: Column(
                         children: <Widget>[
-                          Text(tx.title,style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
-                          Text(DateFormat().add_yMMMd().format(tx.date), style: TextStyle(fontSize: 10,color: Colors.grey),)
+                          Text(
+                            tx.title,
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            DateFormat().add_yMMMd().format(tx.date),
+                            style: TextStyle(fontSize: 10, color: Colors.grey),
+                          )
                         ],
                         crossAxisAlignment: CrossAxisAlignment.start,
-                      ), 
+                      ),
                     )
                   ],
                 ),
