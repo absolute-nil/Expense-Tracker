@@ -12,9 +12,20 @@ class MyApp extends StatelessWidget {
       title: "Expense Manager",
       home: MyHomePage(),
       theme: ThemeData(
-          primarySwatch: Colors.green, accentColor: Colors.blueAccent, fontFamily: 'OpenSans',
-          textTheme: ThemeData.light().textTheme.copyWith(headline6: TextStyle(fontFamily: 'OpenSans', fontSize: 18, fontWeight: FontWeight.bold)),
-          appBarTheme: AppBarTheme(textTheme: ThemeData.light().textTheme.copyWith(headline6: TextStyle(fontFamily: 'OpenSans',fontSize: 20, fontWeight: FontWeight.bold)))),
+          primarySwatch: Colors.green,
+          accentColor: Colors.blueAccent,
+          fontFamily: 'OpenSans',
+          textTheme: ThemeData.light().textTheme.copyWith(
+              headline6: TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold)),
+          appBarTheme: AppBarTheme(
+              textTheme: ThemeData.light().textTheme.copyWith(
+                  headline6: TextStyle(
+                      fontFamily: 'OpenSans',
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold)))),
     );
   }
 }
@@ -26,10 +37,10 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
-    Transaction(
-        id: 't1', title: 'New Laptop', amount: 100000.50, date: DateTime.now()),
-    Transaction(
-        id: 't2', title: 'Logitech Mouse', amount: 8000, date: DateTime.now())
+    // Transaction(
+    //     id: 't1', title: 'New Laptop', amount: 100000.50, date: DateTime.now()),
+    // Transaction(
+    //     id: 't2', title: 'Logitech Mouse', amount: 8000, date: DateTime.now())
   ];
 
   void _addTransaction(String title, double amount) {
