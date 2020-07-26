@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import './widgets/transaction_list.dart'; 
 import './models/transaction.dart';
 import './widgets/chart.dart';
-
+ 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
