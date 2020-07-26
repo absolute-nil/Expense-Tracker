@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
               headline6: TextStyle(
                   fontFamily: 'OpenSans',
                   fontSize: 18,
-                  fontWeight: FontWeight.bold)),
+                  fontWeight: FontWeight.bold),
+                  button: TextStyle(color: Colors.white)),
           appBarTheme: AppBarTheme(
               textTheme: ThemeData.light().textTheme.copyWith(
                   headline6: TextStyle(
@@ -44,11 +45,11 @@ class _MyHomePageState extends State<MyHomePage> {
     //     id: 't2', title: 'Logitech Mouse', amount: 8000, date: DateTime.now())
   ];
 
-  void _addTransaction(String title, double amount) {
+  void _addTransaction(String title, double amount, DateTime date) {
     final newTx = Transaction(
         amount: amount,
         title: title,
-        date: DateTime.now(),
+        date: date,
         id: DateTime.now().toString());
     setState(() {
       _userTransactions.add(newTx);
