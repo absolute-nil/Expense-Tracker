@@ -1,5 +1,3 @@
-import 'package:flutter/services.dart';
-
 import './widgets/new_transaction.dart';
 import 'package:flutter/material.dart';
 import './widgets/transaction_list.dart';
@@ -92,8 +90,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
     final isLandscape =
-        MediaQuery.of(context).orientation == Orientation.landscape;
+        mediaQuery.orientation == Orientation.landscape;
     final appBar = AppBar(
       title: Text("Expense Manager"),
       actions: <Widget>[
@@ -105,9 +104,9 @@ class _MyHomePageState extends State<MyHomePage> {
     );
 
     final txList = Container(
-        height: (MediaQuery.of(context).size.height -
+        height: (mediaQuery.size.height -
                 appBar.preferredSize.height -
-                MediaQuery.of(context).padding.top) *
+                mediaQuery.padding.top) *
             0.7,
         child: TransactionList(_userTransactions, this._deleteTransaction));
 
@@ -120,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(
                 children: <Widget>[
                   Text("Show Chart"),
-                  Switch(
+                  Switch.adaptive(
                       value: _showChart,
                       onChanged: (val) {
                         setState(() {
@@ -131,18 +130,18 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             if (!isLandscape)
               Container(
-                  height: (MediaQuery.of(context).size.height -
+                  height: (mediaQuery.size.height -
                           appBar.preferredSize.height -
-                          MediaQuery.of(context).padding.top) *
+                          mediaQuery.padding.top) *
                       0.3,
                   child: Chart(_recentTransactions)),
             if (!isLandscape) txList,
             if (isLandscape)
               _showChart
                   ? Container(
-                      height: (MediaQuery.of(context).size.height -
+                      height: (mediaQuery.size.height -
                               appBar.preferredSize.height -
-                              MediaQuery.of(context).padding.top) *
+                              mediaQuery.padding.top) *
                           0.7,
                       child: Chart(_recentTransactions))
                   : txList
