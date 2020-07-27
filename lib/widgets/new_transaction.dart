@@ -67,19 +67,20 @@ class _NewTransactionState extends State<NewTransaction> {
             ),
             Row(
               children: <Widget>[
-                Text("No Date Chosen Yet"),
+                Expanded(
+                                  child: Text(_selectedDate == null
+                          ? "No Date Chosen Yet"
+                          : "Date: ${DateFormat.yMd().format(_selectedDate)}"),
+                ),
                 FlatButton(
-                  textColor: Theme.of(context).primaryColor,
-                  child: Text(
-                    _selectedDate == null
-                        ? "Choose Date"
-                        : "Date: ${DateFormat.yMd().format(_selectedDate)}",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                    textColor: Theme.of(context).primaryColor,
+                    child: Text( "Choose Date",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  onPressed: _loadDatePicker,
-                )
+                    onPressed: _loadDatePicker,
+                  )
               ],
             ),
             RaisedButton(
