@@ -1,4 +1,8 @@
+import 'dart:io';
+
+import './adaptive_flat_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
 
 class NewTransaction extends StatefulWidget {
@@ -68,19 +72,11 @@ class _NewTransactionState extends State<NewTransaction> {
             Row(
               children: <Widget>[
                 Expanded(
-                                  child: Text(_selectedDate == null
-                          ? "No Date Chosen Yet"
-                          : "Date: ${DateFormat.yMd().format(_selectedDate)}"),
+                  child: Text(_selectedDate == null
+                      ? "No Date Chosen Yet"
+                      : "Date: ${DateFormat.yMd().format(_selectedDate)}"),
                 ),
-                FlatButton(
-                    textColor: Theme.of(context).primaryColor,
-                    child: Text( "Choose Date",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    onPressed: _loadDatePicker,
-                  )
+                AdaptiveFlatButton(this._loadDatePicker, "Select Date")
               ],
             ),
             RaisedButton(
